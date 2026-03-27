@@ -1,4 +1,4 @@
-using System.Collections;
+﻿using System.Collections;
 using UnityEngine;
 using UnityEngine.InputSystem;
 public class PlayerController : MonoBehaviour
@@ -36,12 +36,15 @@ public class PlayerController : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Enemy"))
         {
-            if (hasPowerup == true)
+            if (hasPowerup)
             {
-                var rb = collision.gameObject.GetComponent<Rigidbody>();
-                var dir = collision.transform.position - transform.position;
+                Rigidbody enemyRb = collision.gameObject.GetComponent<Rigidbody>();
+                Vector3 dir = collision.transform.position - transform.position;
 
-                rb.AddForce(5 * dir.normalized, ForceMode.Impulse);
+              
+                enemyRb.AddForce(5 * dir.normalized, ForceMode.Impulse);
+
+                Destroy(collision.gameObject);
             }
         }
     }

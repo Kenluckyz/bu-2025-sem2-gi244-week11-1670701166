@@ -27,13 +27,9 @@ public class SpawnManager : MonoBehaviour
             // spawn powerup ก่อน
             for (int j = 0; j < w.numberOfPowerUp; j++)
             {
-                Vector3 pos = new Vector3(
-                    Random.Range(-10f, 10f),
-                    0.5f,
-                    Random.Range(-10f, 10f)
-                );
-
-                Instantiate(powerUpPrefab, pos, Quaternion.identity);
+                Transform p = spawnPoints[Random.Range(0, spawnPoints.Length)];
+                Instantiate(powerUpPrefab, p.position, Quaternion.identity);
+              
             }
 
             // รอก่อนเริ่ม spawn

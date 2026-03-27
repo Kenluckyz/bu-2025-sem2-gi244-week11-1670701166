@@ -25,6 +25,10 @@ public class Enemy : MonoBehaviour
             Vector3 dir = (player.transform.position - transform.position).normalized;
             rb.AddForce(dir * speed);
         }
+            if (transform.position.y < -10)
+            {
+                Destroy(gameObject);
+            }
     }
 
     public void Stun(float duration)
