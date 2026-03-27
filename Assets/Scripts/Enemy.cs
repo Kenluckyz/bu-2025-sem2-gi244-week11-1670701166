@@ -21,6 +21,7 @@ public class Enemy : MonoBehaviour
     void Update()
     {
         Vector3 dir = player.transform.position - transform.position;
+        dir.Normalize(); 
         rb.AddForce(dir * speed);
     }
 }
