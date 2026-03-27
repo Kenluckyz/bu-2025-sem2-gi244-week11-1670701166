@@ -28,6 +28,7 @@ public class SpawnManager : MonoBehaviour
             for (int j = 0; j < w.numberOfPowerUp; j++)
             {
                 Transform p = spawnPoints[Random.Range(0, spawnPoints.Length)];
+                
                 Instantiate(powerUpPrefab, p.position, Quaternion.identity);
               
             }
